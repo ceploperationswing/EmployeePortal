@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Portal - Comopower Engineers Private Limited</title>
+    <style>
+        body{
+            font-family:'Times New Roman', Times, serif;
+            background:#f4f6f9;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+
+        .card{
+            background:white;
+            padding:40px;
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,.15);
+            text-align:center;
+            width:600px;
+        }
+
+        h1{
+            color:#003366;
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#555;
+            margin-bottom:25px;
+        }
+
+        a{
+            display:inline-block;
+            background:#0056b3;
+            color:white;
+            text-decoration:none;
+            padding:12px 25px;
+            border-radius:6px;
+            font-weight:bold;
+        }
+
+        a:hover{
+            background:#003d80;
+        }
+
+        .dateTimeLog{
+            padding: 10px;
+        }
+        .dateTimeLog p{
+            margin: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>EMPLOYEE PORTAL</h1>
+
+    <a href="https://script.google.com/macros/s/AKfycbyEZo9HFypahBAYBU2-ngFJsE3SsU8YE2KYdDPBWY7zIlRTOZtMQAonoVDw7dfrCOCW/exec"
+       target="_blank">
+       Open Employee Portal
+    </a>
+
+    <div class="dateTimeLog">
+        <p id="currentDate"></p>
+        <p id="currentTime"></p>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+
+            const date = now.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            const time = now.toLocaleTimeString('en-GB', {
+                hour12: false
+            });
+
+            document.getElementById('currentDate').textContent = 'Date : ' + date;
+            document.getElementById('currentTime').textContent = 'Time : ' + time;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</div>
+
+</body>
+</html>
